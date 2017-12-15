@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd
+
+
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
         
 	<dubbo:registry id="marathonProviderReg" address="${dubbo.registry.address}" group="marathon" />
 	<dubbo:reference registry="marathonProviderReg" id="userService" interface="com.sf.bdp.marathon.service.UserService" retries="0" check="false"/>
+	<dubbo:reference registry="marathonProviderReg" id="groupUserService" interface="com.sf.bdp.marathon.service.GroupUserService" retries="0"
+		check="false"/>
 </beans>
