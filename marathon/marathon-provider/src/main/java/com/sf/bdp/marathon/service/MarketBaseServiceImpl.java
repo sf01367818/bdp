@@ -1,31 +1,28 @@
 package com.sf.bdp.marathon.service;
 
-import com.sf.bdp.marathon.common.bean.Response;
 import com.sf.bdp.marathon.dao.GroupDao;
+import com.sf.bdp.marathon.dao.MarketBaseDao;
 import com.sf.bdp.marathon.entity.Group;
-import javax.annotation.Resource;
+import com.sf.bdp.marathon.entity.MarketBase;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.annotation.Resource;
 
 /**
  * 集货团用户关系表Service实现类
  *
  * @author 01368020
  */
-@Service("groupService")
+@Service("marketBaseService")
 @Transactional(rollbackFor = Exception.class)
-public class GroupServiceImpl implements GroupService {
+public class MarketBaseServiceImpl implements MarketBaseService {
 
   @Resource
-  private GroupDao groupDao;
+  private MarketBaseDao marketBaseDao;
 
   @Override
-  public Group getGroup(String groupId) {
-    return groupDao.find(groupId);
-  }
-
-  @Override
-  public Group getCurrentGroup(String mktId) {
-    return null;
+  public MarketBase getMarkBase(String mktId) {
+    return marketBaseDao.find(mktId);
   }
 }
