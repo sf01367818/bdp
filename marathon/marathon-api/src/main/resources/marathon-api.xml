@@ -15,4 +15,6 @@
 		check="false"/>
 	<dubbo:reference registry="marathonProviderReg" id="groupService" interface="com.sf.bdp.marathon.service.GroupService" retries="0"
 		check="false"/>
+	<dubbo:reference registry="marathonProviderReg" id="marketBaseService" interface="com.sf.bdp.marathon.service.MarketBaseService" retries="0"
+					 check="false"/>
 </beans>
