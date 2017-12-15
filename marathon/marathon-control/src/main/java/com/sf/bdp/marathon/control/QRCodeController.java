@@ -15,7 +15,7 @@ import java.io.OutputStream;
  * Created by 01369308 on 2017/12/15.
  */
 @Controller
-@RequestMapping(value = "group/qrcode", produces = "application/json; charset=UTF-8")
+@RequestMapping(value = "groupQrcode", produces = "application/json; charset=UTF-8")
 public class QRCodeController {
 
     private static final Logger logger = Logger.getLogger(QRCodeController.class);

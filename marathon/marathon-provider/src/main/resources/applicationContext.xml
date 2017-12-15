@@ -29,12 +29,6 @@
         <property name="properties" ref="setting" />
     </bean>
 
-  <!-- <bean id="jettyDaemon" class="com.sf.bdp.marathon.JettyServer" init-method="start">
-		<property name="port" value="${jetty.port}"/>
-		<property name="minThreads" value="10"/>
-		<property name="maxThreads" value="100"/>
-	</bean>-->
-	
 	<import resource="classpath*:spring-orm.xml" />
 	<import resource="classpath*:spring-dubbo.xml" />
 </beans>
