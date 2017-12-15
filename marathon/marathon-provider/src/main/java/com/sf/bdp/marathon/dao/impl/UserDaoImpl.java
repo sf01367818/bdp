@@ -7,6 +7,6 @@ import com.sf.bdp.marathon.entity.User;
 
 
 @Repository
-public class UserDaoImpl extends BaseDaoImpl<User, Integer> implements UserDao {
+public class UserDaoImpl extends BaseDaoImpl<User, String> implements UserDao {
 
 }
