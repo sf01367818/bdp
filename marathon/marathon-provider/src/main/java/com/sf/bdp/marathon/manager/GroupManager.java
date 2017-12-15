@@ -31,12 +31,11 @@ public class GroupManager implements Runnable {
         List<MarketBase> marketBaseList =  marketBaseService.findAll();
         Date date = new Date();
         for (MarketBase marketBase:marketBaseList) {
-            logger.warn(marketBase);
             Group group = groupService.getCurrentGroup(marketBase.getMktId());
             if( group == null){
                 createGroup(marketBase);
             }
-            if(group.getEndTime().getTime() <= date.getTime()){
+            else if(group.getEndTime().getTime() <= date.getTime()){
                 createGroup(marketBase);
             }
         }
