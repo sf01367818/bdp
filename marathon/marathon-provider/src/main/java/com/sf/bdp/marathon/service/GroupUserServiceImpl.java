@@ -40,7 +40,7 @@ public class GroupUserServiceImpl implements GroupUserService {
   }
 
   @Override
-  public Response queryUserCountByGroupId(String id) {
-    return Response.ok(groupUserDao.getUserCountByGroupId(id));
+  public Integer queryUserCountByGroupId(String id) {
+    return groupUserDao.getUserCountByGroupId(id);
   }
 }

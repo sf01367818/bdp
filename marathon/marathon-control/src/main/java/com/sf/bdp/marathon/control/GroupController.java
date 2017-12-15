@@ -4,6 +4,7 @@ import com.sf.bdp.marathon.common.bean.Response;
 import com.sf.bdp.marathon.entity.Group;
 import com.sf.bdp.marathon.entity.MarketBase;
 import com.sf.bdp.marathon.service.GroupService;
+import com.sf.bdp.marathon.service.GroupUserService;
 import com.sf.bdp.marathon.service.MarketBaseService;
 import com.sf.bdp.marathon.vo.GroupDetailVo;
 
@@ -28,6 +29,8 @@ public class GroupController {
 	private GroupService groupService;
 	@Resource
 	private MarketBaseService marketBaseService;
+	
+	private GroupUserService groupUserService;
 
 	@RequestMapping("getGroupDetail")
 	@ResponseBody
@@ -38,7 +41,8 @@ public class GroupController {
 				group = groupService.getCurrentGroup(group.getMktId());
 			}
 			MarketBase marketBase = marketBaseService.getMarkBase(group.getMktId());
-			GroupDetailVo vo = new GroupDetailVo(group,marketBase);
+			Integer userNum = groupUserService.queryUserCountByGroupId(group.getGroupId());
+			GroupDetailVo vo = new GroupDetailVo(group,marketBase,userNum);
 			return Response.ok(vo);
 		} catch (Exception e) {
 			LOGGER.error("get current group error",e);

@@ -10,12 +10,14 @@ public class GroupDetailVo implements Serializable  {
 
 	private Group group;
 	private MarketBase marketBase;
+	private Integer userNum;
 	
 	public GroupDetailVo(){}
 	
-	public GroupDetailVo(Group group,MarketBase marketBase){
+	public GroupDetailVo(Group group,MarketBase marketBase,Integer userNum){
 		this.group = group;
 		this.marketBase = marketBase;
+		this.userNum = userNum;
 	}
 	
 	public Group getGroup() {
@@ -29,5 +31,11 @@ public class GroupDetailVo implements Serializable  {
 	}
 	public void setMarketBase(MarketBase marketBase) {
 		this.marketBase = marketBase;
+	}
+	public Integer getUserNum() {
+		return userNum;
+	}
+	public void setUserNum(Integer userNum) {
+		this.userNum = userNum;
 	}
 }
