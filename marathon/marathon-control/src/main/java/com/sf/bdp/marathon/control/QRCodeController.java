@@ -27,9 +27,9 @@ public class QRCodeController {
     @ResponseBody
     public void get(String groupId, HttpServletResponse response) throws IOException, WriterException {
         logger.info("groupID:" + groupId);
-        String url = "http://112.74.61.163:8080/group/getGroupDetail?groupId=" + groupId;
+        String url = "http://112.74.61.163:8080/marathon-control/group/getGroupDetail?groupId=" + groupId;
         logger.info("url:" + url);
-        String filePath = "/data/controller";
+        String filePath = "/data/controller/";
         String logoPath = filePath + "pics/logo.png";
         String qrCodePath = filePath + "pics/group_" + groupId + "_qrcode.png";
         QRCodeCreater.getInstance().createQRCode(url, logoPath, qrCodePath);
