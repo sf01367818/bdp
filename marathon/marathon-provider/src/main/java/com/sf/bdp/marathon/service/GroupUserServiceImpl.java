@@ -26,11 +26,14 @@ public class GroupUserServiceImpl implements GroupUserService {
   @Resource
   private GroupDao groupDao;
 
+  /**
+   * @see com.sf.bdp.marathon.service.GroupUserService#addGroupUser(GroupUser)
+   */
   @Override
   public Response addGroupUser(GroupUser groupUser) {
     Group group = groupDao.find(groupUser.getGroupId());
     Integer userCount = groupUserDao.getUserCountByGroupId(groupUser.getGroupId());
-    if (group.getGroupLimit() <= userCount) {
+    if (group.getGroupLimit() <= userCount || System.currentTimeMillis() > group.getEndTime().getTime()) {
       Group currentGroup = groupService.getCurrentGroup(group.getMktId());
       return Response.error(currentGroup.getGroupId());
     } else {
