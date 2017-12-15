@@ -19,7 +19,7 @@ public class UserController {
 	
 	@RequestMapping("get")
 	@ResponseBody
-	public Response<User> get(String id) {
+	public Response get(String id) {
 		try {
 			return Response.ok(userService.get(id));
 		} catch (Exception e) {
