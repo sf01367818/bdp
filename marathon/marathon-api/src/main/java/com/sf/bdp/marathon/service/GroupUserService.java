@@ -17,6 +17,7 @@ public interface GroupUserService {
    * @return Response
    * @author 01368020
    */
+  @SuppressWarnings("rawtypes")
   Response addGroupUser(GroupUser groupUser);
 
   /**
