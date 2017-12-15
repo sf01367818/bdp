@@ -19,4 +19,6 @@
 		timeout="5000"/>
 	<dubbo:service registry="marathonProviderReg" ref="groupService" interface="com.sf.bdp.marathon.service.GroupService" retries="0"
 		timeout="5000"/>
+	<dubbo:service registry="marathonProviderReg" ref="marketBaseService" interface="com.sf.bdp.marathon.service.MarketBaseService" retries="0"
+				   timeout="5000"/>
 </beans>
