@@ -4,5 +4,5 @@ import com.sf.bdp.marathon.entity.User;
 
 public interface UserService {
 
-	User get(int id);
+	User get(String id);
 }

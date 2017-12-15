@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:util="http://www.springframework.org/schema/util"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/util
-        http://www.springframework.org/schema/util/spring-util.xsd
+
+
+
+
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
@@ -17,4 +15,8 @@
 	<dubbo:registry id="marathonProviderReg" address="${dubbo.registry.address}" group="marathon" />
 	
 	<dubbo:service registry="marathonProviderReg" ref="userService"  interface="com.sf.bdp.marathon.service.UserService" retries="0" timeout="5000" />
+	<dubbo:service registry="marathonProviderReg" ref="groupUserService" interface="com.sf.bdp.marathon.service.GroupUserService" retries="0"
+		timeout="5000"/>
+	<dubbo:service registry="marathonProviderReg" ref="groupService" interface="com.sf.bdp.marathon.service.GroupService" retries="0"
+		timeout="5000"/>
 </beans>
