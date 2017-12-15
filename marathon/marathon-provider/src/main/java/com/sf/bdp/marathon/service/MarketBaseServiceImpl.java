@@ -5,6 +5,8 @@ import com.sf.bdp.marathon.entity.MarketBase;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 /**
@@ -23,4 +25,10 @@ public class MarketBaseServiceImpl implements MarketBaseService {
   public MarketBase getMarkBase(String mktId) {
     return marketBaseDao.find(mktId);
   }
+
+@Override
+public List<MarketBase> findAll() {
+	return marketBaseDao.findAll();
+}
+  
 }

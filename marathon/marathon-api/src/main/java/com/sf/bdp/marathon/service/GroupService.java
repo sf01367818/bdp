@@ -33,4 +33,7 @@ public interface GroupService {
      * @return
      */
     Group createGroup(String mktId);
+
+
+	void save(Group group);
 }

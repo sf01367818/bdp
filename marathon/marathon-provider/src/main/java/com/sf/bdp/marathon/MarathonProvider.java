@@ -14,8 +14,9 @@ public class MarathonProvider {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 
-		new ClassPathXmlApplicationContext("applicationContext.xml").start();
-		SchedulerTaskExecutor.getInstance().execute(new GroupManager(),100,1000,MILLISECONDS);
+		ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+		GroupManager groupManager = applicationContext.getBean(GroupManager.class);
+		SchedulerTaskExecutor.getInstance().execute(groupManager,100,1000,MILLISECONDS);
 		while (true) {
 			try {
 				Thread.sleep(2000L);

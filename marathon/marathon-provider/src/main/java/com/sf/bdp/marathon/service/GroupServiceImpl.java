@@ -37,6 +37,7 @@ public class GroupServiceImpl implements GroupService {
     public Group getCurrentGroup(String mktId) {
         return groupDao.getCurrentGroup(mktId);
     }
+    
 
     @Override
     public Group createGroup(String mktId) {
@@ -52,4 +53,10 @@ public class GroupServiceImpl implements GroupService {
         groupDao.save(group);
         return group;
     }
+
+	@Override
+	public void save(Group group) {
+		groupDao.save(group);	
+	}
+    
 }

@@ -1,16 +1,19 @@
 package com.sf.bdp.marathon.manager;
 
-import com.sf.bdp.marathon.dao.GroupDao;
-import com.sf.bdp.marathon.dao.MarketBaseDao;
 import com.sf.bdp.marathon.entity.Group;
 import com.sf.bdp.marathon.entity.MarketBase;
+import com.sf.bdp.marathon.service.GroupService;
+import com.sf.bdp.marathon.service.MarketBaseService;
+
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+@Component
 public class GroupManager implements Runnable {
 
     private static final Logger logger = Logger.getLogger(GroupManager.class);
@@ -18,18 +21,18 @@ public class GroupManager implements Runnable {
     SimpleDateFormat sdf = new SimpleDateFormat("MMddHHmm");
 
     @Resource
-    private MarketBaseDao marketBaseDao;
+    private MarketBaseService marketBaseService;
 
     @Resource
-    private static  GroupDao groupDao;
+    private GroupService groupService;
 
     @Override
     public void run() {
-        List<MarketBase> marketBaseList =  marketBaseDao.findAll();
+        List<MarketBase> marketBaseList =  marketBaseService.findAll();
         Date date = new Date();
         for (MarketBase marketBase:marketBaseList) {
             logger.warn(marketBase);
-            Group group = groupDao.getCurrentGroup(marketBase.getMktId());
+            Group group = groupService.getCurrentGroup(marketBase.getMktId());
             if( group == null){
                 createGroup(marketBase);
             }
@@ -48,7 +51,7 @@ public class GroupManager implements Runnable {
         group.setMktId(marketBase.getMktId());
         group.setGroupLimit(marketBase.getGroupLimit());
         group.setGroupName(marketBase.getMktNameShow() + sdf.format(startTime));
-        groupDao.save(group);
+        groupService.save(group);
         return group;
     }
 }

@@ -1,5 +1,7 @@
 package com.sf.bdp.marathon.service;
 
+import java.util.List;
+
 import com.sf.bdp.marathon.entity.MarketBase;
 
 /**
@@ -15,5 +17,7 @@ public interface MarketBaseService {
      * @return
      */
     MarketBase getMarkBase(String mktId);
+    
+    List<MarketBase> findAll();
 
 }
