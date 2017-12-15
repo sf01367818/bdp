@@ -16,9 +16,9 @@ public final class QRCodeCreater {
         return instance;
     }
 
-    public void createQRCode(String context, String logoPath, String qrCodePath) throws IOException, WriterException {
+    public void createQRCode(String context, String logoPath, String qrCodePath, boolean needCompress,int qrcodeSize) throws IOException, WriterException {
         if(!new File(qrCodePath).exists()) {
-            QRCodeUtil.encode(context, logoPath, qrCodePath);
+            QRCodeUtil.encode(context, logoPath, qrCodePath, needCompress, qrcodeSize);
         }
     }
 }

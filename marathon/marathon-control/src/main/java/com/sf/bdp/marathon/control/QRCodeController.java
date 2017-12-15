@@ -31,7 +31,7 @@ public class QRCodeController {
         String filePath = "/data/controller/";
         String logoPath = filePath + "pics/logo.png";
         String qrCodePath = filePath + "pics/group_" + groupId + "_qrcode.png";
-        QRCodeCreater.getInstance().createQRCode(url, logoPath, qrCodePath);
+        QRCodeCreater.getInstance().createQRCode(url, logoPath, qrCodePath, true, 600);
         response.setContentType("image/png");
         OutputStream outputStream = response.getOutputStream();
         IOUtils.write(new FileInputStream(qrCodePath), outputStream, 1024);
