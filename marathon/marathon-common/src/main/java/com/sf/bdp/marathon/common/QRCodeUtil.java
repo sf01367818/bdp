@@ -14,7 +14,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.HashMap;
+import java.util.EnumMap;
 
 /**
  * Created by 01369308 on 2017/12/15.
@@ -37,7 +37,7 @@ public class QRCodeUtil {
     }
     private static BufferedImage createImage(String content, String imgPath,
                                              boolean needCompress,int qrcodeSize) throws WriterException, IOException {
-        HashMap<EncodeHintType, Object> hints = new HashMap<EncodeHintType, Object>();
+    	EnumMap<EncodeHintType, Object> hints = new EnumMap<>(EncodeHintType.class);
         hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
         hints.put(EncodeHintType.CHARACTER_SET, CHARSET);
         hints.put(EncodeHintType.MARGIN, 1);
@@ -257,11 +257,10 @@ public class QRCodeUtil {
                 image);
         BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
         Result result;
-        HashMap<DecodeHintType, Object> hints = new HashMap<DecodeHintType, Object>();
+        EnumMap<DecodeHintType, Object> hints = new EnumMap<>(DecodeHintType.class);
         hints.put(DecodeHintType.CHARACTER_SET, CHARSET);
         result = new MultiFormatReader().decode(bitmap, hints);
-        String resultStr = result.getText();
-        return resultStr;
+        return result.getText();
     }
 
     /**
