@@ -20,7 +20,7 @@ import java.util.Date;
 @Transactional(rollbackFor = Exception.class)
 public class GroupServiceImpl implements GroupService {
 
-    SimpleDateFormat sdf = new SimpleDateFormat("MMddhhmm");
+    SimpleDateFormat sdf = new SimpleDateFormat("MMddHHmm");
 
     @Resource
     private GroupDao groupDao;
