@@ -38,7 +38,7 @@ public class MarketBase implements Serializable {
 	@Column(name="group_duration",columnDefinition = ("tinyint comment '拼团周期'"))
 	private Short groupDuration;
 	@Column(name="use_require",columnDefinition = ("text comment '使用要求'"))
-	private Short useRequire;//	使用要求
+	private String useRequire;//	使用要求
 	public String getMktId() {
 		return mktId;
 	}
@@ -93,10 +93,10 @@ public class MarketBase implements Serializable {
 	public void setGroupDuration(Short groupDuration) {
 		this.groupDuration = groupDuration;
 	}
-	public Short getUseRequire() {
+	public String getUseRequire() {
 		return useRequire;
 	}
-	public void setUseRequire(Short useRequire) {
+	public void setUseRequire(String useRequire) {
 		this.useRequire = useRequire;
 	}
 

@@ -1,7 +1,5 @@
 package com.sf.bdp.marathon.service;
 
-import com.googlecode.genericdao.search.ISearch;
-import com.sf.bdp.marathon.common.bean.Response;
 import com.sf.bdp.marathon.dao.GroupDao;
 import com.sf.bdp.marathon.dao.MarketBaseDao;
 import com.sf.bdp.marathon.entity.Group;
