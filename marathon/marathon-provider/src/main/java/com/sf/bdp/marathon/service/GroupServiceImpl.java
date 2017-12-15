@@ -20,7 +20,12 @@ public class GroupServiceImpl implements GroupService {
   private GroupDao groupDao;
 
   @Override
-  public Response gernateGroup(Group group) {
+  public Group getGroup(String groupId) {
+    return null;
+  }
+
+  @Override
+  public Group getCurrentGroup(String mktId) {
     return null;
   }
 }
