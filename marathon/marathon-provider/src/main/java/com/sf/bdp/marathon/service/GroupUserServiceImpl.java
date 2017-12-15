@@ -29,6 +29,7 @@ public class GroupUserServiceImpl implements GroupUserService {
   /**
    * @see com.sf.bdp.marathon.service.GroupUserService#addGroupUser(GroupUser)
    */
+  @SuppressWarnings("rawtypes")
   @Override
   public Response addGroupUser(GroupUser groupUser) {
     Group group = groupDao.find(groupUser.getGroupId());
