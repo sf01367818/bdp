@@ -20,19 +20,12 @@ public class Response<T> implements Serializable {
 		this.data = data;
 	}
 	
-	public static<T> Response<T> ok(String msg,T o){
-		return new Response<>(true,msg,o);
-	}
 	public static<T> Response<T> ok(T o){
 		return new Response<>(true,null,o);
 	}
 	public static<T> Response<T> ok(){
 		return new Response<>(true,null);
 	}
-	public static<T> Response<T> ok(String msg){
-		return new Response<>(true,msg);
-	}
-	
 	public static<T> Response<T> error(){
 		return new Response<>(false,null);
 	}
