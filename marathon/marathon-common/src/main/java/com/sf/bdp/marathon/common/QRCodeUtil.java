@@ -123,7 +123,7 @@ public class QRCodeUtil {
                               boolean needCompress) throws IOException, WriterException {
         BufferedImage image = QRCodeUtil.createImage(content, imgPath, needCompress);
         //    FileUtils.mkdirs(destPath);
-        FileUtils.forceMkdirParent(new File(destPath));
+        FileUtils.forceMkdir(new File(destPath).getParentFile());
         ImageIO.write(image, FORMAT_NAME, new File(destPath));
     }
     /**
@@ -139,7 +139,7 @@ public class QRCodeUtil {
     public static void encode(String content, String imgPath, String destPath,
                               boolean needCompress,int qrcodeSize) throws IOException, WriterException {
         BufferedImage image = QRCodeUtil.createImage(content, imgPath, needCompress,qrcodeSize);
-        FileUtils.forceMkdirParent(new File(destPath));
+        FileUtils.forceMkdir(new File(destPath).getParentFile());
         ImageIO.write(image, FORMAT_NAME, new File(destPath));
     }
 

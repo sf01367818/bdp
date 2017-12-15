@@ -1,7 +1,6 @@
 package com.sf.bdp.marathon.common;
 
 import com.google.zxing.WriterException;
-import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
