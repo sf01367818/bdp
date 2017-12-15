@@ -31,7 +31,7 @@ public class GroupController {
 
 	@RequestMapping("getGroupDetail")
 	@ResponseBody
-	public Response<GroupDetailVo> getGroupDetail(String groupId) {
+	public Response getGroupDetail(String groupId) {
 		try {
 			Group group = groupService.getGroup(groupId);
 			if (group.getEndTime().getTime() < System.currentTimeMillis()) {
