@@ -29,18 +29,15 @@ public class GroupController {
 	private GroupService groupService;
 	@Resource
 	private MarketBaseService marketBaseService;
-	
+	@Resource
 	private GroupUserService groupUserService;
 
 	@RequestMapping("getGroupDetail")
 	@ResponseBody
-	public Response getGroupDetail(String groupId) {
+	public Response getGroupDetail(String mktId) {
 		try {
-			Group group = groupService.getGroup(groupId);
-			if (group.getEndTime().getTime() < System.currentTimeMillis()) {
-				group = groupService.getCurrentGroup(group.getMktId());
-			}
-			MarketBase marketBase = marketBaseService.getMarkBase(group.getMktId());
+			MarketBase marketBase = marketBaseService.getMarkBase(mktId);
+			Group group = groupService.getCurrentGroup(mktId);
 			Integer userNum = groupUserService.queryUserCountByGroupId(group.getGroupId());
 			GroupDetailVo vo = new GroupDetailVo(group,marketBase,userNum);
 			return Response.ok(vo);
