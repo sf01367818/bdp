@@ -27,7 +27,7 @@ public class MarketBase implements Serializable {
 	private Float weightMin;
 	@Column(name = "weight_max", columnDefinition = "decimal comment '首重价格'")
 	private Float weightMax;
-	@Column(name="base_price",columnDefinition = ("decimal comment '首重价格'"))
+	@Column(name = "base_price", columnDefinition = "decimal comment '首重价格'")
 	private Float basePrice;
 	@Column(name = "base_weight", columnDefinition = "decimal comment '首重重量'")
 	private Float baseWeight;
