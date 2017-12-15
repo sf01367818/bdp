@@ -23,4 +23,5 @@ public class GroupUserDaoImpl extends BaseDaoImpl<GroupUser, Integer> implements
     query.setParameter(0, id);
     return (Integer) query.uniqueResult();
   }
+  
 }

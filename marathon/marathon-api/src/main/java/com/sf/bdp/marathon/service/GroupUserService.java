@@ -26,6 +26,6 @@ public interface GroupUserService {
    * @return
    * @author 01368020
    */
-  Response queryUserCountByGroupId(String id);
+  Integer queryUserCountByGroupId(String id);
 
 }
