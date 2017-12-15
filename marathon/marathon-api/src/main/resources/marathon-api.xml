@@ -4,17 +4,12 @@
 	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-
-
         http://code.alibabatech.com/schema/dubbo
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
         
 	<dubbo:registry id="marathonProviderReg" address="${dubbo.registry.address}" group="marathon" />
 	<dubbo:reference registry="marathonProviderReg" id="userService" interface="com.sf.bdp.marathon.service.UserService" retries="0" check="false"/>
-	<dubbo:reference registry="marathonProviderReg" id="groupUserService" interface="com.sf.bdp.marathon.service.GroupUserService" retries="0"
-		check="false"/>
-	<dubbo:reference registry="marathonProviderReg" id="groupService" interface="com.sf.bdp.marathon.service.GroupService" retries="0"
-		check="false"/>
-	<dubbo:reference registry="marathonProviderReg" id="marketBaseService" interface="com.sf.bdp.marathon.service.MarketBaseService" retries="0"
-					 check="false"/>
+	<dubbo:reference registry="marathonProviderReg" id="groupUserService" interface="com.sf.bdp.marathon.service.GroupUserService" retries="0" check="false"/>
+	<dubbo:reference registry="marathonProviderReg" id="groupService" interface="com.sf.bdp.marathon.service.GroupService" retries="0" check="false"/>
+	<dubbo:reference registry="marathonProviderReg" id="marketBaseService" interface="com.sf.bdp.marathon.service.MarketBaseService" retries="0"  check="false"/>
 </beans>

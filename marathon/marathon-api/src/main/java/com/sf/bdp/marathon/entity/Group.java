@@ -28,7 +28,7 @@ public class Group implements Serializable {
 	private String groupUser;
 	@Column(name = "start_time", columnDefinition = ("datetime not null comment '开始时间'"))
 	private Date startTime;
-	@Column(name = "end_time", columnDefinition = ("datetime not null comment '结束时间'"))
+	@Column(name = "end_time", columnDefinition = ("datetime comment '结束时间'"))
 	private Date endTime;
 	@Column(name = "group_name", columnDefinition = ("varchar(150) not null comment '集货团名称'"))
 	private String groupName;
