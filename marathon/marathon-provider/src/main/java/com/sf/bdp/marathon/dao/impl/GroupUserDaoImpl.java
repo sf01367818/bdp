@@ -2,6 +2,7 @@ package com.sf.bdp.marathon.dao.impl;
 
 import com.sf.bdp.marathon.dao.GroupUserDao;
 import com.sf.bdp.marathon.entity.GroupUser;
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -12,4 +13,14 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class GroupUserDaoImpl extends BaseDaoImpl<GroupUser, Integer> implements GroupUserDao {
 
+  /**
+   * @see com.sf.bdp.marathon.dao.GroupUserDao#getUserCountByGroupId(String)
+   */
+  @Override
+  public Integer getUserCountByGroupId(String id) {
+    String sql = "select count(*) from pro_group_user where group_id = ?";
+    Query query = this.getSessionFactory().getCurrentSession().createSQLQuery(sql);
+    query.setParameter(0, id);
+    return (Integer) query.uniqueResult();
+  }
 }

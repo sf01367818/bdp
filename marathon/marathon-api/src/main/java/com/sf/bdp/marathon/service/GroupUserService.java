@@ -11,7 +11,7 @@ import com.sf.bdp.marathon.entity.GroupUser;
 public interface GroupUserService {
 
   /**
-   * 添加集货团用户关系
+   * 添加集货团用户关系，如果当前集货团有效，则加入当前期，失效则返回下一期的集货团id
    *
    * @param groupUser
    * @return Response
