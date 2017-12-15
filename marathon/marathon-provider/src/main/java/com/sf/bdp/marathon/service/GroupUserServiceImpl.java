@@ -1,7 +1,9 @@
 package com.sf.bdp.marathon.service;
 
 import com.sf.bdp.marathon.common.bean.Response;
+import com.sf.bdp.marathon.dao.GroupDao;
 import com.sf.bdp.marathon.dao.GroupUserDao;
+import com.sf.bdp.marathon.entity.Group;
 import com.sf.bdp.marathon.entity.GroupUser;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -16,20 +18,29 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(rollbackFor = Exception.class)
 public class GroupUserServiceImpl implements GroupUserService {
 
+  private GroupService groupService;
+
   @Resource
   private GroupUserDao groupUserDao;
 
+  @Resource
+  private GroupDao groupDao;
+
   @Override
   public Response addGroupUser(GroupUser groupUser) {
-    if (groupUserDao.save(groupUser)) {
-      return Response.ok("保存集货团用户成功");
+    Group group = groupDao.find(groupUser.getGroupId());
+    Integer userCount = groupUserDao.getUserCountByGroupId(groupUser.getGroupId());
+    if (group.getGroupLimit() <= userCount) {
+      Group currentGroup = groupService.getCurrentGroup(group.getMktId());
+      return Response.error(currentGroup.getGroupId());
     } else {
-      return Response.error("保存集货团用户失败");
+      groupUserDao.save(groupUser);
+      return Response.ok(groupUser.getGroupId());
     }
   }
 
   @Override
   public Response queryUserCountByGroupId(String id) {
-    return null;
+    return Response.ok(groupUserDao.getUserCountByGroupId(id));
   }
 }

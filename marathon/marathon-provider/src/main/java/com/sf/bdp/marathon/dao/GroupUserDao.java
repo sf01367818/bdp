@@ -10,4 +10,13 @@ import com.sf.bdp.marathon.entity.GroupUser;
  */
 public interface GroupUserDao extends GenericDAO<GroupUser, Integer> {
 
+  /**
+   * 获取当前团报名的用户数量
+   *
+   * @param id
+   * @return
+   * @author 01368020
+   */
+  public Integer getUserCountByGroupId(String id);
+
 }

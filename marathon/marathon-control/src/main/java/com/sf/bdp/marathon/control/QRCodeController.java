@@ -22,15 +22,15 @@ import java.io.OutputStream;
 public class QRCodeController {
 
     private static final Logger logger = Logger.getLogger(QRCodeController.class);
-    @RequestMapping("get")
+
     @ResponseBody
-    public void get(@PathVariable String group_id, HttpServletResponse response) {
-        logger.info("group_id:" + group_id);
-        String url = "http://112.74.61.163:8080/group/group_id=" + group_id;
+    public void get(String groupID, HttpServletResponse response) {
+        logger.info("groupID:" + groupID);
+        String url = "http://112.74.61.163:8080/group/groupID=" + groupID;
         try {
             String filePath = QRCodeController.class.getResource("/").toString();
             String logoPath = filePath + "pics/logo.png";
-            String qrCodePath = filePath + "pics/group_" + group_id + "_qrcode.png";
+            String qrCodePath = filePath + "pics/group_" + groupID + "_qrcode.png";
             QRCodeCreater.getInstance().createQRCode(url, logoPath, qrCodePath);
             response.setContentType("image/png");
             OutputStream outputStream = response.getOutputStream();
