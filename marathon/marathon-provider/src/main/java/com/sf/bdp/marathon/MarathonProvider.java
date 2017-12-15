@@ -11,6 +11,7 @@ public class MarathonProvider {
 
 	static final Logger LOG = LoggerFactory.getLogger(MarathonProvider.class);
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 
 		new ClassPathXmlApplicationContext("applicationContext.xml").start();
