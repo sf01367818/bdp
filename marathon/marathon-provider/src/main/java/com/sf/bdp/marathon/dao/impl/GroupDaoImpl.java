@@ -16,7 +16,7 @@ public class GroupDaoImpl extends BaseDaoImpl<Group, String> implements GroupDao
     @Override
     public Group getCurrentGroup(String mktId) {
         String sql = "select * from pro_group where mkt_id = ? order by end_time desc limit 1";
-        Query query = this.getSessionFactory().getCurrentSession().createSQLQuery(sql);
+        Query query = this.getSessionFactory().getCurrentSession().createSQLQuery(sql).addEntity(Group.class);
         query.setParameter(0, mktId);
         return (Group) query.uniqueResult();
     }
