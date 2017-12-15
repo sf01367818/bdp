@@ -17,27 +17,27 @@ public class MarketBase implements Serializable {
 	private static final long serialVersionUID = 1337718021661802250L;
 	
 	@Id
-	@Column(name="MKT_ID",columnDefinition = ("varchar(36) not null comment '专业市场ID'"))
+	@Column(name="mkt_id",columnDefinition = ("varchar(36) not null comment '专业市场ID'"))
 	@GeneratedValue(generator = "uuid") 
 	@GenericGenerator(name = "uuid", strategy = "uuid")
 	private String mktId;
-	@Column(name="MKT_NAME_SHOW",columnDefinition = ("varchar(50) not null comment '市场外部名称'"))
+	@Column(name="mkt_name_show",columnDefinition = ("varchar(50) not null comment '市场外部名称'"))
 	private String mktNameShow;
-	@Column(name="DAILY_MIN_PACKAGES",columnDefinition = ("smallint comment '单客日均最小件量'"))
+	@Column(name="daily_min_packages",columnDefinition = ("smallint comment '单客日均最小件量'"))
 	private Short dailyMinPackages;	
-	@Column(name="WEIGHT_MIN",columnDefinition = ("decimal comment '重量区间（最小）'"))
+	@Column(name="weight_min",columnDefinition = ("decimal comment '重量区间（最小）'"))
 	private Float weightMin;
-	@Column(name="WEIGHT_MAX",columnDefinition = ("decimal comment '首重价格'"))
+	@Column(name="weight_max",columnDefinition = ("decimal comment '首重价格'"))
 	private Float weightMax;
-	@Column(name="BASE_PRICE",columnDefinition = ("decimal comment '首重价格'"))
+	@Column(name="base_price",columnDefinition = ("decimal comment '首重价格'"))
 	private Float basePrice;
-	@Column(name="BASE_WEIGHT",columnDefinition = ("decimal comment '首重重量'"))
+	@Column(name="base_weight",columnDefinition = ("decimal comment '首重重量'"))
 	private Float baseWeight;
-	@Column(name="GROUP_LIMIT",columnDefinition = ("smallint comment '成团人数'"))
+	@Column(name="group_limit",columnDefinition = ("smallint comment '成团人数'"))
 	private Short groupLimit;
-	@Column(name="GROUP_DURATION",columnDefinition = ("tinyint comment '拼团周期'"))
+	@Column(name="group_duration",columnDefinition = ("tinyint comment '拼团周期'"))
 	private Short groupDuration;
-	@Column(name="USE_REQUIRE",columnDefinition = ("text comment '使用要求'"))
+	@Column(name="use_require",columnDefinition = ("text comment '使用要求'"))
 	private Short useRequire;//	使用要求
 	public String getMktId() {
 		return mktId;
