@@ -2,11 +2,8 @@ package com.sf.bdp.marathon.control;
 
 import com.alibaba.dubbo.common.utils.IOUtils;
 import com.sf.bdp.marathon.common.QRCodeCreater;
-import com.sf.bdp.marathon.common.bean.Response;
-import com.sf.bdp.marathon.entity.User;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,6 +20,7 @@ public class QRCodeController {
 
     private static final Logger logger = Logger.getLogger(QRCodeController.class);
 
+    @RequestMapping("get")
     @ResponseBody
     public void get(String groupID, HttpServletResponse response) {
         logger.info("groupID:" + groupID);
