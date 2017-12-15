@@ -3,12 +3,11 @@ package com.sf.bdp.marathon.service;
 import com.sf.bdp.marathon.dao.GroupDao;
 import com.sf.bdp.marathon.dao.MarketBaseDao;
 import com.sf.bdp.marathon.entity.Group;
-import javax.annotation.Resource;
-
 import com.sf.bdp.marathon.entity.MarketBase;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -21,36 +20,36 @@ import java.util.Date;
 @Transactional(rollbackFor = Exception.class)
 public class GroupServiceImpl implements GroupService {
 
-  SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    SimpleDateFormat sdf = new SimpleDateFormat("MMddhhmm");
 
-  @Resource
-  private GroupDao groupDao;
+    @Resource
+    private GroupDao groupDao;
 
-  @Resource
-  private MarketBaseDao marketBaseDao;
+    @Resource
+    private MarketBaseDao marketBaseDao;
 
-  @Override
-  public Group getGroup(String groupId) {
-    return groupDao.find(groupId);
-  }
+    @Override
+    public Group getGroup(String groupId) {
+        return groupDao.find(groupId);
+    }
 
-  @Override
-  public Group getCurrentGroup(String mktId) {
-    return groupDao.getCurrentGroup(mktId);
-  }
+    @Override
+    public Group getCurrentGroup(String mktId) {
+        return groupDao.getCurrentGroup(mktId);
+    }
 
-  @Override
-  public Group createGroup(String mktId) {
-    MarketBase marketBase = marketBaseDao.find(mktId);
-    Date startTime = new Date();
-    Date endTime = new Date(startTime.getTime() + marketBase.getGroupDuration() * 60000);
-    Group group = new Group();
-    group.setStartTime(startTime);
-    group.setEndTime(endTime);
-    group.setMktId(marketBase.getMktId());
-    group.setGroupLimit(marketBase.getGroupLimit());
-    group.setGroupName(marketBase.getMktNameShow() + sdf.format(startTime));
-    groupDao.save(group);
-    return group;
-  }
+    @Override
+    public Group createGroup(String mktId) {
+        MarketBase marketBase = marketBaseDao.find(mktId);
+        Date startTime = new Date();
+        Date endTime = new Date(startTime.getTime() + marketBase.getGroupDuration() * 60000);
+        Group group = new Group();
+        group.setStartTime(startTime);
+        group.setEndTime(endTime);
+        group.setMktId(marketBase.getMktId());
+        group.setGroupLimit(marketBase.getGroupLimit());
+        group.setGroupName(marketBase.getMktNameShow() + sdf.format(startTime) + "");
+        groupDao.save(group);
+        return group;
+    }
 }
