@@ -6,22 +6,21 @@ public class Response<T> implements Serializable {
 	
 	private static final long serialVersionUID = 9028163396962707842L;
 	private boolean success;
-	private String msg;
 	private T data;
 	
 	public Response(){}
-	public Response(boolean success,String msg){
+
+	public Response(boolean success) {
 		this.success = success;
-		this.msg = msg;
 	}
-	public Response(boolean success,String msg,T data){
+
+	public Response(boolean success, T data) {
 		this.success = success;
-		this.msg = msg;
 		this.data = data;
 	}
-	
-	public static<T> Response<T> ok(T o){
-		return new Response<>(true,null,o);
+
+	public static <T> Response<T> ok(T data) {
+		return new Response<>(true, data);
 	}
 	public static<T> Response<T> ok(){
 		return new Response<>(true,null);
@@ -29,20 +28,15 @@ public class Response<T> implements Serializable {
 	public static<T> Response<T> error(){
 		return new Response<>(false,null);
 	}
-	public static<T> Response<T> error(String msg){
-		return new Response<>(false,msg);
+
+	public static <T> Response<T> error(T data) {
+		return new Response<>(false, data);
 	}
 	public boolean isSuccess() {
 		return success;
 	}
 	public void setSuccess(boolean success) {
 		this.success = success;
-	}
-	public String getMsg() {
-		return msg;
-	}
-	public void setMsg(String msg) {
-		this.msg = msg;
 	}
 	public T getData() {
 		return data;
