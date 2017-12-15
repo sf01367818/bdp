@@ -5,7 +5,6 @@ import com.sf.bdp.marathon.entity.MarketBase;
 import com.sf.bdp.marathon.service.GroupService;
 import com.sf.bdp.marathon.service.MarketBaseService;
 
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
