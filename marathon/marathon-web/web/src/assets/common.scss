@@ -1,0 +1,86 @@
+// 各种颜色规格
+$mcolor:#ff6532;
+$msgTa:#353535;
+$msgTb:#000000;
+$btnBg:rgba(255,101,50,0.6);
+$tipText:rgba(211,106,72,0.8);
+$divLine:#e6e6e6;
+$disableC:#b2b2b2;
+$greenState:#598e1c;
+$grayState:#888888;
+$smallBtn:#e64340;
+$smallTitle:#d35048;
+$bga:#ffffff;
+$bgb:#f8f8f8;
+$tipsBg:#f8eee6;
+$shareWX:#09bb07;
+$borderRadius: .053333rem /* 4/75 */;
+$lineHeight:.48rem /* 36/75 */;
+// 各种字体规格
+$bigBannerFS:.533333rem /* 40/75 */;
+$topTitleFS:.493333rem /* 37/75 */;
+$stateDesFS:.48rem /* 36/75 */;
+$inputFS:.453333rem /* 34/75 */;
+$smallTitleFS:.426667rem /* 32/75 */;
+$textFS:.4rem /* 30/75 */;
+$logFS:.373333rem /* 28/75 */;
+$msgFS:.346667rem /* 26/75 */;
+$smallTextFS:.32rem /* 24/75 */;
+@mixin mb {
+    margin-bottom: .24rem /* 18/75 */;
+}
+@mixin sf-btn($color,$borderColor,$backgroundColor) {
+    padding: .1rem /* 7.5/75 */ .266667rem /* 20/75 */;
+    margin: 0 .066667rem /* 5/75 */;
+    color:$color;
+    font-size: .186667rem /* 14/75 */;
+    border: .013333rem /* 1/75 */ solid $borderColor;
+    background-color: $backgroundColor; 
+    border-radius: $borderRadius;
+    outline: none;
+    cursor: pointer;
+    &.first {
+        margin-left: 0;
+    }
+}
+@mixin sf-small-btn($color,$borderColor,$backgroundColor) {
+  padding: .1rem /* 7.5/75 */ .266667rem /* 20/75 */;
+  margin: 0 .066667rem /* 5/75 */;
+  color:$color;
+  font-size: .186667rem /* 14/75 */;
+  border: .013333rem /* 1/75 */ solid $borderColor;
+  background-color: $backgroundColor; 
+  border-radius: $borderRadius;
+  outline: none;
+  cursor: pointer;
+  &.first {
+      margin-left: 0;
+  }
+}
+@mixin sf-hover($color) {
+    &:hover {
+        border-color: $color;
+        background-color:$color; 
+    }
+}
+@mixin sf-all-hover($color,$borderColor,$backgroundColor) {
+  &:hover {
+      border-color: $borderColor;
+      background-color:$backgroundColor; 
+      color:$color
+  }
+}
+@mixin sf-clear(){
+  &::after{
+    content: '';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+  }
+}
+// $fa-font-path:'../../src/assets/css/fonts';
+
+// @import "../../node_modules/font-awesome/scss/font-awesome.scss";
+// @import '../../node_modules/element-ui/packages/theme-chalk/src/index';

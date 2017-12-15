@@ -1,0 +1,109 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    height: 100%;
+    width: 100%;
+    font-family: "Microsoft Yahei", 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+textarea,
+keygen,
+select,
+button {
+    font-family: "Microsoft Yahei", 'Avenir', Helvetica, Arial, sans-serif;
+}
+
+.t18 {
+    font-size: 18px;
+}
+
+.t16 {
+    font-size: 16px;
+}
+
+.t14 {
+    font-size: 14px;
+}
+
+.t12 {
+    font-size: 12px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    line-height: 1.46;
+    margin: 0;
+}
+
+#app {
+    height: 100%;
+    width: 100%;
+}
+section.sf-content {
+    height: 100%;
+    width: 100%;
+    padding-top: 63px;
+    box-sizing: border-box;
+    .main {
+        padding: 20px;
+    }
+}
+
+
+
+input,
+textarea,
+keygen,
+select,
+button {
+    font-family: "Microsoft YaHei","微软雅黑";
+    outline: 0;
+    font-size: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul,
+li,
+ol {
+    list-style: none;
+}
+
+img {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    clear: both;
+}
