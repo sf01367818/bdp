@@ -25,12 +25,12 @@ public class QRCodeController {
 
     @RequestMapping("get")
     @ResponseBody
-    public void get(String groupId, HttpServletResponse response) throws IOException, WriterException {
-        logger.info("groupID:" + groupId);
+    public void get(String mktId, HttpServletResponse response) throws IOException, WriterException {
+        logger.info("mktId:" + mktId);
         Properties properties = new Properties();
-        String url = "http://" + properties.getProperty("host_port", "112.74.61.163:8080") + "/marathon-control/group/getGroupDetail?groupId=" + groupId;
+        String url = "http://" + properties.getProperty("host_port", "112.74.61.163:8080") + "/marathon-control?mktId=" + mktId;
         logger.info("url:" + url);
-        String qrCodePath = "/data/controller/pics/group_" + groupId + "_qrcode.png";
+        String qrCodePath = "/data/controller/pics/group_" + mktId + "_qrcode.png";
         QRCodeCreater.getInstance().createQRCode(url, "/data/controller/pics/logo.png", qrCodePath, true, 600);
         response.setContentType("image/png");
         OutputStream outputStream = response.getOutputStream();
