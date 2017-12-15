@@ -10,7 +10,7 @@ import com.sf.bdp.marathon.entity.Group;
 public interface GroupService {
 
     /**
-     * create a new group
+     * get a group
      *
      * @param groupId
      * @return
@@ -19,11 +19,18 @@ public interface GroupService {
 
 
     /**
-     * create a new group
+     * get the current group
      *
      * @param mktId
      * @return
      */
     Group getCurrentGroup(String mktId);
 
+    /**
+     * create a new group
+     *
+     * @param mktId
+     * @return
+     */
+    Group createGroup(String mktId);
 }

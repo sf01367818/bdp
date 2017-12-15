@@ -1,8 +1,6 @@
 package com.sf.bdp.marathon.service;
 
-import com.sf.bdp.marathon.dao.GroupDao;
 import com.sf.bdp.marathon.dao.MarketBaseDao;
-import com.sf.bdp.marathon.entity.Group;
 import com.sf.bdp.marathon.entity.MarketBase;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
