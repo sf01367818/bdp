@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author 01368020
  */
-@Service("groupUserService")
+@Service("groupService")
 @Transactional(rollbackFor = Exception.class)
 public class GroupServiceImpl implements GroupService {
 
