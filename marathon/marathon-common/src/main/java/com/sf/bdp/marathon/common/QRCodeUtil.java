@@ -279,6 +279,5 @@ public class QRCodeUtil {
         String text = "http://112.74.61.163:8080";
 //        QRCodeUtil.encode(text, "E:\\programe_compete\\code\\image\\2.png", "E:\\programe_compete\\code\\image\\2_out.png", false,600);
         QRCodeUtil.encode(text, "E:\\programe_compete\\code\\image\\2.png", "E:\\programe_compete\\code\\image\\2_out.png", true,600);
-
     }
 }
