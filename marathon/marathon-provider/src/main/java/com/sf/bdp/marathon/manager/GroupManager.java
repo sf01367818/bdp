@@ -16,8 +16,6 @@ import java.util.List;
 @Component
 public class GroupManager implements Runnable {
 
-    private static final Logger logger = Logger.getLogger(GroupManager.class);
-
     SimpleDateFormat sdf = new SimpleDateFormat("MMddHHmm");
 
     @Resource
@@ -32,10 +30,7 @@ public class GroupManager implements Runnable {
         Date date = new Date();
         for (MarketBase marketBase:marketBaseList) {
             Group group = groupService.getCurrentGroup(marketBase.getMktId());
-            if( group == null){
-                createGroup(marketBase);
-            }
-            else if(group.getEndTime().getTime() <= date.getTime()){
+            if( group == null || group.getEndTime().getTime() <= date.getTime()){
                 createGroup(marketBase);
             }
         }
