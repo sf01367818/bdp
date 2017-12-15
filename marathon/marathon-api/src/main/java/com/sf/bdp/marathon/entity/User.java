@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
@@ -15,6 +16,7 @@ public class User implements Serializable {
 
 	private static final long serialVersionUID = -3479439467003051023L;
 
+	@Id
 	@Column(name="user_id",columnDefinition = ("varchar(36) not null comment '用户ID'"))
 	@GeneratedValue(generator = "uuid") 
 	@GenericGenerator(name = "uuid", strategy = "uuid")

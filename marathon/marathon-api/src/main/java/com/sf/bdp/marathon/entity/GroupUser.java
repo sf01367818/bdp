@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
@@ -11,7 +13,9 @@ import javax.persistence.Table;
 public class GroupUser implements Serializable {
 
 	private static final long serialVersionUID = -3479439467003051023L;
-
+	@Id
+	@GeneratedValue
+	private Integer id;
 	@Column(name = "group_id", columnDefinition = ("varchar(36) not null comment '姓名'"))
 	private String groupId;
 	@Column(name = "user_id", columnDefinition = ("varchar(36) not null comment '姓名'"))
@@ -30,6 +34,13 @@ public class GroupUser implements Serializable {
 	private Short sendPackages;
 	@Column(name="weight",columnDefinition = ("decimal comment '重量'"))
 	private Float weight;
+	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public String getGroupId() {
 		return groupId;
 	}
