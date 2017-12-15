@@ -13,4 +13,6 @@
 	<dubbo:reference registry="marathonProviderReg" id="userService" interface="com.sf.bdp.marathon.service.UserService" retries="0" check="false"/>
 	<dubbo:reference registry="marathonProviderReg" id="groupUserService" interface="com.sf.bdp.marathon.service.GroupUserService" retries="0"
 		check="false"/>
+	<dubbo:reference registry="marathonProviderReg" id="groupService" interface="com.sf.bdp.marathon.service.GroupService" retries="0"
+		check="false"/>
 </beans>
