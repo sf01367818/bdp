@@ -14,7 +14,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Hashtable;
+import java.util.HashMap;
 
 /**
  * Created by 01369308 on 2017/12/15.
@@ -29,13 +29,15 @@ public class QRCodeUtil {
     // LOGO高度
     private static final int HEIGHT = 60;
 
+    private QRCodeUtil() {}
+
     private static BufferedImage createImage(String content, String imgPath,
                                              boolean needCompress) throws IOException, WriterException {
         return createImage(content,  imgPath, needCompress,QRCODE_SIZE);
     }
     private static BufferedImage createImage(String content, String imgPath,
                                              boolean needCompress,int qrcodeSize) throws WriterException, IOException {
-        Hashtable<EncodeHintType, Object> hints = new Hashtable<EncodeHintType, Object>();
+        HashMap<EncodeHintType, Object> hints = new HashMap<EncodeHintType, Object>();
         hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
         hints.put(EncodeHintType.CHARACTER_SET, CHARSET);
         hints.put(EncodeHintType.MARGIN, 1);
@@ -122,7 +124,6 @@ public class QRCodeUtil {
     public static void encode(String content, String imgPath, String destPath,
                               boolean needCompress) throws IOException, WriterException {
         BufferedImage image = QRCodeUtil.createImage(content, imgPath, needCompress);
-        //    FileUtils.mkdirs(destPath);
         FileUtils.forceMkdir(new File(destPath).getParentFile());
         ImageIO.write(image, FORMAT_NAME, new File(destPath));
     }
@@ -158,8 +159,8 @@ public class QRCodeUtil {
     public static void encode(String content, String imgPath, String destPath) throws IOException, WriterException {
         QRCodeUtil.encode(content, imgPath, destPath, false);
     }
-    public static void encode(String content, String imgPath, String destPath,int qrcodeSize) throws IOException, WriterException {
-        QRCodeUtil.encode(content, imgPath, destPath, false);
+    public static void encode(String content, String imgPath, String destPath, int qrcodeSize) throws IOException, WriterException {
+        QRCodeUtil.encode(content, imgPath, destPath, true, qrcodeSize);
     }
     /**
      * 生成二维码
@@ -256,7 +257,7 @@ public class QRCodeUtil {
                 image);
         BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
         Result result;
-        Hashtable<DecodeHintType, Object> hints = new Hashtable<DecodeHintType, Object>();
+        HashMap<DecodeHintType, Object> hints = new HashMap<DecodeHintType, Object>();
         hints.put(DecodeHintType.CHARACTER_SET, CHARSET);
         result = new MultiFormatReader().decode(bitmap, hints);
         String resultStr = result.getText();
@@ -271,13 +272,8 @@ public class QRCodeUtil {
      * @return
      * @throws Exception
      */
-    public static String decode(String path) throws Exception {
+    public static String decode(String path) throws IOException, NotFoundException {
         return QRCodeUtil.decode(new File(path));
     }
 
-    public static void main(String[] args) throws IOException, WriterException {
-        String text = "http://112.74.61.163:8080";
-//        QRCodeUtil.encode(text, "E:\\programe_compete\\code\\image\\2.png", "E:\\programe_compete\\code\\image\\2_out.png", false,600);
-        QRCodeUtil.encode(text, "E:\\programe_compete\\code\\image\\2.png", "E:\\programe_compete\\code\\image\\2_out.png", true,600);
-    }
 }

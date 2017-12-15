@@ -1,7 +1,6 @@
 package com.sf.bdp.marathon.entity;
 
 import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,23 +15,23 @@ public class GroupUser implements Serializable {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	@Column(name = "group_id", columnDefinition = ("varchar(36) not null comment '姓名'"))
+	@Column(name = "group_id", columnDefinition = "varchar(36) not null comment '姓名'")
 	private String groupId;
-	@Column(name = "user_id", columnDefinition = ("varchar(36) not null comment '姓名'"))
+	@Column(name = "user_id", columnDefinition = "varchar(36) not null comment '姓名'")
 	private String userId;
-	@Column(name = "send_address", columnDefinition = ("varchar(255) default null comment '寄件地址'"))
+	@Column(name = "send_address", columnDefinition = "varchar(255) default null comment '寄件地址'")
 	private String sendAddress;
-	@Column(name = "send_user_name", columnDefinition = ("varchar(50) default null comment '用户姓名'"))
+	@Column(name = "send_user_name", columnDefinition = "varchar(50) default null comment '用户姓名'")
 	private String sendUserName;
-	@Column(name = "send_phone", columnDefinition = ("varchar(50) default null comment '寄方电话号码'"))
+	@Column(name = "send_phone", columnDefinition = "varchar(50) default null comment '寄方电话号码'")
 	private String sendPhone;
-	@Column(name = "receive_address", columnDefinition = ("varchar(255) default null comment '收件地址'"))
+	@Column(name = "receive_address", columnDefinition = "varchar(255) default null comment '收件地址'")
 	private String receiveAddress;
-	@Column(name="daily_expect_packages",columnDefinition = ("smallint comment '预估每日件量'"))
+	@Column(name = "daily_expect_packages", columnDefinition = "smallint comment '预估每日件量'")
 	private Short dailyExpectPackages;
-	@Column(name="send_packages",columnDefinition = ("smallint comment '寄件数量'"))
+	@Column(name = "send_packages", columnDefinition = "smallint comment '寄件数量'")
 	private Short sendPackages;
-	@Column(name="weight",columnDefinition = ("decimal comment '重量'"))
+	@Column(name = "weight", columnDefinition = "decimal comment '重量'")
 	private Float weight;
 	
 	public Integer getId() {

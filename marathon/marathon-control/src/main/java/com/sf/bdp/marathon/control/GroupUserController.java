@@ -34,6 +34,7 @@ public class GroupUserController {
     try {
       return groupUserService.addGroupUser(groupUser);
     } catch (Exception e) {
+      logger.error(e.getMessage(), e);
       return Response.error("连接dubbo服务失败");
     }
   }

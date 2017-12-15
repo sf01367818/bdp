@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional(rollbackFor = Exception.class)
 public class GroupUserServiceImpl implements GroupUserService {
 
+  @Resource
   private GroupService groupService;
 
   @Resource
@@ -29,12 +30,13 @@ public class GroupUserServiceImpl implements GroupUserService {
   /**
    * @see com.sf.bdp.marathon.service.GroupUserService#addGroupUser(GroupUser)
    */
+  @SuppressWarnings("rawtypes")
   @Override
   public Response addGroupUser(GroupUser groupUser) {
     Group group = groupDao.find(groupUser.getGroupId());
     Integer userCount = groupUserDao.getUserCountByGroupId(groupUser.getGroupId());
     if (group.getGroupLimit() <= userCount || System.currentTimeMillis() > group.getEndTime().getTime()) {
-      Group currentGroup = groupService.getCurrentGroup(group.getMktId());
+      Group currentGroup = groupService.createGroup(group.getMktId());
       return Response.error(currentGroup.getGroupId());
     } else {
       groupUserDao.save(groupUser);

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Properties;
 
 /**
  * Created by 01369308 on 2017/12/15.
@@ -26,7 +27,8 @@ public class QRCodeController {
     @ResponseBody
     public void get(String groupId, HttpServletResponse response) throws IOException, WriterException {
         logger.info("groupID:" + groupId);
-        String url = "http://112.74.61.163:8080/marathon-control/group/getGroupDetail?groupId=" + groupId;
+        Properties properties = new Properties();
+        String url = "http://" + properties.getProperty("host_port", "112.74.61.163:8080") + "/marathon-control/group/getGroupDetail?groupId=" + groupId;
         logger.info("url:" + url);
         String filePath = "/data/controller/";
         String logoPath = filePath + "pics/logo.png";

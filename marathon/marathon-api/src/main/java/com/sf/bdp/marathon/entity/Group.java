@@ -2,13 +2,11 @@ package com.sf.bdp.marathon.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import org.hibernate.annotations.GenericGenerator;
 
 
@@ -18,19 +16,19 @@ public class Group implements Serializable {
 
 	private static final long serialVersionUID = -7653196989988338521L;
 	@Id
-	@Column(name="group_id",columnDefinition = ("varchar(36) not null comment '集货团ID'"))
+	@Column(name = "group_id", columnDefinition = "varchar(36) not null comment '集货团ID'")
 	@GeneratedValue(generator = "uuid") 
 	@GenericGenerator(name = "uuid", strategy = "uuid")
 	private String groupId;
-	@Column(name="mkt_id",columnDefinition = ("varchar(36) not null comment '专业市场ID'"))
+	@Column(name = "mkt_id", columnDefinition = "varchar(36) not null comment '专业市场ID'")
 	private String mktId;
-	@Column(name = "start_time", columnDefinition = ("datetime not null comment '开始时间'"))
+	@Column(name = "start_time", columnDefinition = "datetime not null comment '开始时间'")
 	private Date startTime;
-	@Column(name = "end_time", columnDefinition = ("datetime comment '结束时间'"))
+	@Column(name = "end_time", columnDefinition = "datetime comment '结束时间'")
 	private Date endTime;
-	@Column(name = "group_name", columnDefinition = ("varchar(150) not null comment '集货团名称'"))
+	@Column(name = "group_name", columnDefinition = "varchar(150) not null comment '集货团名称'")
 	private String groupName;
-	@Column(name = "group_limit", columnDefinition = ("smallint comment '成团人数'"))
+	@Column(name = "group_limit", columnDefinition = "smallint comment '成团人数'")
 	private Short groupLimit;
 
 	public Short getGroupLimit() {
