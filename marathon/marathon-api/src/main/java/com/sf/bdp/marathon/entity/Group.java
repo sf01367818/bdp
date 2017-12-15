@@ -24,8 +24,6 @@ public class Group implements Serializable {
 	private String groupId;
 	@Column(name="mkt_id",columnDefinition = ("varchar(36) not null comment '专业市场ID'"))
 	private String mktId;
-	@Column(name = "group_user", columnDefinition = ("varchar(150) not null comment '姓名'"))
-	private String groupUser;
 	@Column(name = "start_time", columnDefinition = ("datetime not null comment '开始时间'"))
 	private Date startTime;
 	@Column(name = "end_time", columnDefinition = ("datetime not null comment '结束时间'"))
@@ -54,12 +52,6 @@ public class Group implements Serializable {
 	}
 	public void setMktId(String mktId) {
 		this.mktId = mktId;
-	}
-	public String getGroupUser() {
-		return groupUser;
-	}
-	public void setGroupUser(String groupUser) {
-		this.groupUser = groupUser;
 	}
 	public Date getStartTime() {
 		return startTime;
