@@ -32,6 +32,17 @@ public class Group implements Serializable {
 	private Date endTime;
 	@Column(name = "group_name", columnDefinition = ("varchar(150) not null comment '集货团名称'"))
 	private String groupName;
+	@Column(name = "group_limit", columnDefinition = ("smallint comment '成团人数'"))
+	private Short groupLimit;
+
+	public Short getGroupLimit() {
+		return groupLimit;
+	}
+
+	public void setGroupLimit(Short groupLimit) {
+		this.groupLimit = groupLimit;
+	}
+
 	public String getGroupId() {
 		return groupId;
 	}
