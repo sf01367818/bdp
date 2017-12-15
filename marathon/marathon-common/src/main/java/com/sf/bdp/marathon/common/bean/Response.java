@@ -1,10 +1,7 @@
 package com.sf.bdp.marathon.common.bean;
 
-import java.io.Serializable;
-
-public class Response<T> implements Serializable {
+public class Response<T> {
 	
-	private static final long serialVersionUID = 9028163396962707842L;
 	private boolean success;
 	private T data;
 	
