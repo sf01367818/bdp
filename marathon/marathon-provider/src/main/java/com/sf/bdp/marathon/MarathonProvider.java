@@ -16,12 +16,12 @@ public class MarathonProvider {
 
 		new ClassPathXmlApplicationContext("applicationContext.xml").start();
 		SchedulerTaskExecutor.getInstance().execute(new GroupManager(),100,1000,MILLISECONDS);
-		try {
-			while (true) {
+		while (true) {
+			try {
 				Thread.sleep(2000L);
+			} catch (Exception e) {
+				LOG.error("start MarathonProvider failed", e);
 			}
-		} catch (Exception e) {
-			LOG.error("start MarathonProvider failed", e);
 		}
 	}
 }
