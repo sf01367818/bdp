@@ -26,7 +26,8 @@ public class QRCodeController {
         logger.info("groupID:" + groupID);
         String url = "http://112.74.61.163:8080/group/groupID=" + groupID;
         try {
-            String filePath = QRCodeController.class.getResource("/").toString();
+            String filePath = QRCodeController.class.getResource("").toString();
+            logger.info("filePath:" + filePath);
             String logoPath = filePath + "pics/logo.png";
             String qrCodePath = filePath + "pics/group_" + groupID + "_qrcode.png";
             QRCodeCreater.getInstance().createQRCode(url, logoPath, qrCodePath);

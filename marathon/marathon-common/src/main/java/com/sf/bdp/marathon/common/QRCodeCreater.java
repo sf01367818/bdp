@@ -10,7 +10,7 @@ import java.io.IOException;
  */
 public final class QRCodeCreater {
     private QRCodeCreater() {}
-    private static QRCodeCreater instance = new QRCodeCreater();
+    private static final QRCodeCreater instance = new QRCodeCreater();
 
     public static QRCodeCreater getInstance() {
         return instance;
